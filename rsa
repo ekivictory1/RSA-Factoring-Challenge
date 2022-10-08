@@ -1,35 +1,32 @@
 #!/usr/bin/python3
+"""
+Factorize numbers in a file into a product of two prime numbers
+"""
+import sys
 
 
-from fractions import gcd
-from sys import argv
+def factorize():
+    """
+    A function to search file and factorize the given set of numbers into two prime numbers (format n = p*q)
+    """
+    try:
+        file = sys.argv[1]
+        with open(file) as f:
+            for line_number in f:
+                line_number = int(line_number)
+                if line_number % 2 == 0:
+                        print("{}={}*{}".format(line_number, line_number // 2, 2))
+                        continue
+                i = 3
+                while i < line_number // 2:
+                    if line_number % i == 0:
+                        print("{}={}*{}".format(line_number, line_number // i, i))
+                        break
+                    i = i + 2
+                if i == (line_number // 2) + 1:
+                    print("{}={}*{}".format(line_number, line_number, 1))
+    except (IndexError):
+        pass
 
 
-def pollards_rho(n):
-    x = 2
-    y = 2
-    d = 1
-    f = lambda x: (x**2 + 1) % n
-    while d == 1:
-        x = f(x)
-        y = f(f(y))
-        d = gcd(abs(x - y), n)
-    if d != n:
-        return d
-
-
-def read_file():
-    with open(argv[1]) as f:
-        for number in f:
-            num = int(number)
-            if num % 2 == 0:
-                print("{:d}={}*{}".format(num, num // 2, 2))
-            else:
-                p = pollards_rho(num)
-                f1 = p
-                f2 = int(num / p)
-                print("{}={}*{}".format(num, f1, f2))
-
-
-if __name__ == "__main__":
-    read_file()
+factorize()

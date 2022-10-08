@@ -14,6 +14,8 @@
 #define S_BUFFER 2000
 #define VALUE 1000
 
+int main()
+
 /* factors.c */
 void init(char *buffer);
 void file2buffer(char *filename, char *buffer);
