@@ -88,14 +88,14 @@ void _putint(long long unsigned int *dest, long long unsigned int n)
  */
 long long unsigned int compute(long long unsigned int *src, long long unsigned int n)
 {
-        int i;
+int i;
 	long long unsigned int result = 0;
 
-        for (i = 0; i < n; i++)
-	{
-                result *= 10;
-		result += src[i];
-	}
+for (i = 0; i < n; i++)
+{
+result *= 10;
+result += src[i];
+}
 
 	//printf("result is: %llu\n", result);
 	return result;

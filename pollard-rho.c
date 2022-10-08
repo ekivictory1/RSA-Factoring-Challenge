@@ -73,13 +73,13 @@ long long unsigned int PollardRho(long long unsigned int n)
 		y = (modular_pow(y, 2, n) + c + n)%n; 
 
 		/* check gcd of |x-y| and n */
-		d = __gcd(abs(x-y), n); 
+		d = __gcd(abs(x-y), n);
 
-		/* retry if the algorithm fails to find prime factor 
+		/* retry if the algorithm fails to find prime factor
 		* with chosen x and c */
 		if (d==n)
-			return PollardRho(n); 
-	} 
+			return PollardRho(n);
+	}
 
-	return d; 
-} 
+	return d;
+}
