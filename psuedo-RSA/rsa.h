@@ -10,6 +10,8 @@
 
 bool square(unsigned long long b);
 int factorise(unsigned long long n);
+int main(int argc, char *argv[]);
+int main(int argc, char *argv[])
 int factorize(mpz_t n);
 void operate(char *str);
 
